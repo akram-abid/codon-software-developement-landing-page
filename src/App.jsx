@@ -116,9 +116,9 @@ const promises = [
 ]
 
 const team = [
-  { name: 'Founder name', role: 'THE LEADER' },
-  { name: 'Rahim', role: 'THE SAVER' },
-  { name: 'Mustafa', role: 'THE TRYER' },
+  { name: 'Akram Abid', role: 'does soemthing' },
+  { name: 'Abderahim Meryah', role: 'does soemthing' },
+  { name: 'Tahraoui Mustapha', role: 'does soemthing' },
 ]
 
 const faqs = [
