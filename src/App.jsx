@@ -13,27 +13,30 @@ import footerLogo from './assets/137ccb54a18da6035523307f9b2a8737.png'
 
 /* ------------------------------------------------------------------ */
 /*  Design tokens                                                      */
+/*                                                                     */
+/*  Layout is fluid now: sections flow and stack on phones, then grow  */
+/*  into the original 1200px composition from `lg` (1024px) up.        */
+/*  Breakpoints: sm 640 / md 768 / lg 1024 / xl 1280.                  */
 /* ------------------------------------------------------------------ */
 
-const SEC = 'relative w-[1200px] overflow-hidden'
+const SEC = 'relative w-full overflow-hidden'
+const PAD = 'px-6 py-14 sm:px-10 lg:px-16 lg:py-16'
 const TAG = 'font-mono text-xs font-medium tracking-[0.08em]'
 const MONO = 'font-mono'
 const HEAD = 'font-sans font-extrabold tracking-[-0.035em]'
 const HEAD_T = `${HEAD} leading-[0.93]`
+const H2_SIZE = 'text-[length:clamp(36px,9vw,68px)]'
 const BTN =
-  'btn inline-flex h-[52px] cursor-pointer items-center gap-3 px-6 font-sans text-[17px] font-bold no-underline'
+  'btn inline-flex h-12 cursor-pointer items-center gap-3 whitespace-nowrap px-5 font-sans text-base font-bold no-underline sm:h-[52px] sm:px-6 sm:text-[17px]'
 const BTN_DARK = `${BTN} btn-fill bg-ink text-cream`
 const BTN_OUTLINE = `${BTN} btn-line border-2 border-ink`
 // Sits on the orange CTA band, so it stays dark in both themes.
 const BTN_CTA = `${BTN} btn-cta bg-[#14110f] text-[#f6f1e9]`
-const CUT_40 =
-  '[clip-path:polygon(0_0,calc(100%_-_40px)_0,100%_40px,100%_100%,0_100%)]'
-const CUT_56 =
-  '[clip-path:polygon(0_0,calc(100%_-_56px)_0,100%_56px,100%_100%,0_100%)]'
-const CUT_64 =
-  '[clip-path:polygon(0_0,calc(100%_-_64px)_0,100%_64px,100%_100%,0_100%)]'
-const CUT_84 =
-  '[clip-path:polygon(0_0,calc(100%_-_84px)_0,100%_84px,100%_100%,0_100%)]'
+// Cut-corner sizes live in CSS so they can shrink on phones.
+const CUT_40 = 'cut cut-40'
+const CUT_56 = 'cut cut-56'
+const CUT_64 = 'cut cut-64'
+const CUT_84 = 'cut cut-84'
 
 /* ------------------------------------------------------------------ */
 /*  Content                                                            */
@@ -44,52 +47,45 @@ const navLinks = ['Work', 'Services', 'Process', 'Team', 'Contact']
 const services = [
   {
     n: '01',
-    pos: 'left-16',
     t: 'Websites',
     d: 'Fast, clear sites that bring in customers and look like you.',
   },
   {
     n: '02',
-    pos: 'left-[338px]',
     t: 'Mobile apps',
     d: 'Apps for phones that people open every day.',
   },
   {
     n: '03',
-    pos: 'left-[612px]',
     t: 'Business systems',
     d: 'Orders, stock and invoices in one place, built around how you work.',
   },
   {
     n: '04',
-    pos: 'left-[886px]',
     t: 'Hosting and care',
     d: 'We keep it online, safe and updated. We pick up when it breaks.',
   },
 ]
 
 const stats = [
-  { pos: 'left-16', value: '3', label: 'FRIENDS, ONE STUDIO' },
-  { pos: 'left-[340px]', value: '7', label: 'DAYS BETWEEN DEMOS' },
-  { pos: 'left-[616px]', value: '4', label: 'WAYS WE HELP' },
-  { pos: 'left-[892px]', value: '1', label: 'PRICE AND DATE, IN WRITING' },
+  { value: '3', label: 'FRIENDS, ONE STUDIO' },
+  { value: '7', label: 'DAYS BETWEEN DEMOS' },
+  { value: '4', label: 'WAYS WE HELP' },
+  { value: '1', label: 'PRICE AND DATE, IN WRITING' },
 ]
 
 const processSteps = [
   {
-    pos: 'left-16',
     n: '01',
     t: 'Lead',
     d: 'We listen, agree the goal, the price and the date, and put it in writing.',
   },
   {
-    pos: 'left-[432px]',
     n: '02',
     t: 'Try',
     d: 'We build in small steps and show you the result every week. We keep trying until it works.',
   },
   {
-    pos: 'left-[800px]',
     n: '03',
     t: 'Ship',
     d: 'We put it online with a plan, and we stay close for the first days.',
@@ -98,59 +94,50 @@ const processSteps = [
 
 const promises = [
   {
-    pos: 'top-[100px]',
     t: 'Plain words',
     d: 'No jargon. If we use a hard word, we explain it.',
   },
   {
-    pos: 'top-[184px]',
     t: 'Price and date in writing',
     d: 'You know the cost and the day before we start.',
   },
   {
-    pos: 'top-[268px]',
     t: 'A result every week',
     d: 'You see the work grow, not just the end.',
   },
   {
-    pos: 'top-[352px]',
     t: 'Three people, one team',
     d: 'You talk to the people who build it.',
   },
   {
-    pos: 'top-[436px]',
     t: 'We pick up when it breaks',
     d: 'We stay close after launch and keep it running.',
   },
 ]
 
 const team = [
-  { pos: 'left-16', name: 'Founder name', role: 'THE LEADER' },
-  { pos: 'left-[430px]', name: 'Rahim', role: 'THE SAVER' },
-  { pos: 'left-[796px]', name: 'Mustafa', role: 'THE TRYER' },
+  { name: 'Founder name', role: 'THE LEADER' },
+  { name: 'Rahim', role: 'THE SAVER' },
+  { name: 'Mustafa', role: 'THE TRYER' },
 ]
 
 const faqs = [
   {
-    pos: 'left-16 top-[236px]',
     n: 'Q1',
     t: 'How do we start?',
     d: 'Say hello. We listen, agree the goal, the price and the date, and put it in writing.',
   },
   {
-    pos: 'left-[616px] top-[236px]',
     n: 'Q2',
     t: 'Will I see the work before the end?',
     d: 'Yes. We show you a result every week and keep trying until it works.',
   },
   {
-    pos: 'left-16 top-[416px]',
     n: 'Q3',
     t: 'What do you build?',
     d: 'Websites, mobile apps and business systems for companies that want to grow.',
   },
   {
-    pos: 'left-[616px] top-[416px]',
     n: 'Q4',
     t: 'What happens after launch?',
     d: 'We stay close for the first days, then keep it online, safe and updated.',
@@ -167,17 +154,14 @@ const terminalLines = [
 
 const footerColumns = [
   {
-    pos: 'left-[520px]',
     title: 'STUDIO',
     items: ['Work', 'Services', 'Process', 'Team'],
   },
   {
-    pos: 'left-[720px]',
     title: 'CONTACT',
     items: ['hello@codon.studio', '+000 000 000 000', 'City, Country'],
   },
   {
-    pos: 'left-[960px]',
     title: 'FOLLOW',
     items: ['LinkedIn', 'Instagram', 'TikTok'],
   },
@@ -226,6 +210,8 @@ const termTimeline = (() => {
 /*    - entrance animations use `transform`; hover/idle effects use    */
 /*      the individual `translate` / `scale` / `rotate` properties so  */
 /*      the two never fight each other                                 */
+/*    - hover effects only run where hover exists (mouse), so phones   */
+/*      never get stuck in a hovered state after a tap                 */
 /* ------------------------------------------------------------------ */
 
 const CSS = `
@@ -250,14 +236,28 @@ html[data-theme='dark']{
   --panel-fg:#f4efe6;
   color-scheme:dark;
 }
-html{scroll-behavior:smooth;background:var(--color-cream)}
+html{scroll-behavior:smooth;background:var(--color-cream);-webkit-text-size-adjust:100%;text-size-adjust:100%}
 ::selection{background:var(--color-accent);color:#14110f}
+a:focus-visible,button:focus-visible{outline:2px solid var(--color-accent);outline-offset:3px}
 .panel{background:var(--panel);color:var(--panel-fg)}
 .on-accent{color:var(--on-accent)}
 html[data-theme='dark'] .term{box-shadow:inset 0 0 0 1px rgba(244,239,230,.1)}
 .logo-dark{display:none}
 html[data-theme='dark'] .logo-light{display:none}
 html[data-theme='dark'] .logo-dark{display:block}
+
+/* cut corner: smaller on phones, full size from lg */
+.cut{clip-path:polygon(0 0,calc(100% - var(--c)) 0,100% var(--c),100% 100%,0 100%)}
+.cut-40{--c:26px}
+.cut-56{--c:34px}
+.cut-64{--c:40px}
+.cut-84{--c:52px}
+@media (min-width:1024px){
+  .cut-40{--c:40px}
+  .cut-56{--c:56px}
+  .cut-64{--c:64px}
+  .cut-84{--c:84px}
+}
 
 /* theme switch: a diamond wipe that grows out of the toggle */
 ::view-transition-old(root),::view-transition-new(root){animation:none;mix-blend-mode:normal}
@@ -305,16 +305,17 @@ html[data-theme='dark'] .logo-dark{display:block}
 @keyframes sq{from{opacity:0;transform:rotate(-90deg) scale(0)}to{opacity:1;transform:none}}
 @keyframes ld{0%{opacity:1}33%,100%{opacity:.15}}
 @keyframes type{to{width:calc(var(--n) * 1ch)}}
+@keyframes menuin{from{clip-path:inset(0 0 100% 0)}to{clip-path:inset(0 0 0 0)}}
 
 /* ---------- nav ---------- */
 .nav-in{animation:navdrop .8s var(--ease) both}
+.menu-in{animation:menuin .45s var(--snap) both}
 .ulink::after{
   content:'';position:absolute;left:0;right:0;bottom:0;height:3px;
   background:var(--color-accent);
   transform:scaleX(0);transform-origin:right;
   transition:transform .35s var(--snap);
 }
-.ulink:hover::after{transform:scaleX(1);transform-origin:left}
 
 /* ---------- buttons: accent fill slides in from the left ---------- */
 .btn{overflow:hidden;isolation:isolate;transition:color .3s,scale .2s}
@@ -325,20 +326,13 @@ html[data-theme='dark'] .logo-dark{display:block}
   transform:translateX(-101%);
   transition:transform .4s var(--snap);
 }
-.btn:hover::before{transform:none}
 .btn:active{scale:.97}
-.btn:focus-visible,.ulink:focus-visible{outline:2px solid var(--color-accent);outline-offset:3px}
-.btn-fill:hover{color:var(--on-accent)}
 .btn-line::before{background:var(--color-ink)}
-.btn-line:hover{color:var(--color-cream)}
 .btn-cta::before{background:#f6f1e9}
-.btn-cta:hover{color:#14110f}
 .btn .arr{display:inline-block;transition:translate .3s var(--ease)}
-.btn:hover .arr{translate:6px 0}
 
 /* theme toggle icons */
 .tt svg{position:absolute;transition:transform .6s var(--snap),opacity .35s,rotate .4s var(--ease)}
-.tt:hover svg{rotate:18deg}
 .tt .moon{transform:rotate(-90deg) scale(.3);opacity:0}
 html[data-theme='dark'] .tt .moon{transform:none;opacity:1}
 html[data-theme='dark'] .tt .sun{transform:rotate(90deg) scale(.3);opacity:0}
@@ -362,7 +356,6 @@ html[data-theme='dark'] .tt .sun{transform:rotate(90deg) scale(.3);opacity:0}
 
 /* ---------- marquee ---------- */
 .marq-track{animation:marq 26s linear infinite}
-.marq-track:hover{animation-play-state:paused}
 .marq-sep{display:inline-block;animation:spin4 3s steps(4) infinite}
 
 /* ---------- numbers ---------- */
@@ -378,17 +371,14 @@ html[data-theme='dark'] .tt .sun{transform:rotate(90deg) scale(.3);opacity:0}
 
 /* ---------- services ---------- */
 .svc{transition:background-color .35s,color .35s,translate .4s var(--ease)}
-.svc:hover{translate:0 -10px;background-color:var(--color-accent);color:var(--on-accent)}
 .svc::after{
   content:'';position:absolute;left:0;right:0;bottom:0;height:6px;
   background:var(--on-accent);transform:scaleX(0);transform-origin:left;
   transition:transform .45s var(--snap);
 }
-.svc:hover::after{transform:scaleX(1)}
 
 /* ---------- work ---------- */
 .wk{transition:translate .4s var(--ease)}
-.wk:hover{translate:0 -8px}
 .tick{animation:tick 2.4s steps(1) infinite;animation-delay:var(--d,0ms)}
 .shine{overflow:hidden}
 .shine::after{
@@ -411,13 +401,11 @@ html[data-theme='dark'] .tt .sun{transform:rotate(90deg) scale(.3);opacity:0}
             breathe 3.2s ease-in-out calc(var(--d,0ms) + 1400ms) infinite;
 }
 .see-all{transition:color .3s}
-.see-all:hover{color:var(--color-accent)}
 .see-all::after{
   content:'';position:absolute;left:0;right:0;bottom:-4px;height:2px;
   background:var(--color-accent);transform:scaleX(0);transform-origin:left;
   transition:transform .35s var(--snap);
 }
-.see-all:hover::after{transform:scaleX(1)}
 
 /* ---------- process: a tiny pipeline that runs Lead > Try > Ship ---------- */
 .prog{
@@ -430,23 +418,18 @@ html[data-theme='dark'] .tt .sun{transform:rotate(90deg) scale(.3);opacity:0}
 
 /* ---------- promises ---------- */
 .promise{transition:translate .4s var(--ease)}
-.promise:hover{translate:12px 0}
 .promise::before{transition:rotate .4s var(--ease),scale .4s var(--ease)}
-.promise:hover::before{rotate:45deg;scale:1.35}
 [data-in='true'] .promise::before{animation:sq .6s cubic-bezier(.3,1.5,.5,1) calc(var(--d,0ms) + 250ms) both}
 .promise .ptitle{transition:color .3s}
-.promise:hover .ptitle{color:var(--color-accent)}
 
 /* ---------- team ---------- */
 .member-photo{transition:translate .4s var(--ease),background-color .35s,color .35s}
-.member:hover .member-photo{translate:0 -8px;background-color:var(--color-accent);color:var(--on-accent)}
 .stripes{
   position:absolute;inset:-40px;
   background:repeating-linear-gradient(135deg,transparent 0 14px,color-mix(in srgb,var(--color-muted) 24%,transparent) 14px 16px);
   animation:stripes 1.2s linear infinite;
 }
 .member .mname{transition:color .3s}
-.member:hover .mname{color:var(--color-accent)}
 
 /* ---------- faq ---------- */
 .faq::before{
@@ -454,18 +437,40 @@ html[data-theme='dark'] .tt .sun{transform:rotate(90deg) scale(.3);opacity:0}
   background:var(--color-accent);transform:scaleX(0);transform-origin:left;
   transition:transform .5s var(--snap);
 }
-.faq:hover::before{transform:scaleX(1)}
 .faq .faq-q{transition:translate .35s var(--ease)}
-.faq:hover .faq-q{translate:10px 0}
 
 /* ---------- footer ---------- */
 .flink{transition:translate .3s var(--ease),color .3s}
-.flink:hover{translate:8px 0;color:var(--color-accent)}
 .foot-line::before{
   content:'';position:absolute;left:0;right:0;top:0;height:1px;
   background:var(--color-muted);transform:scaleX(0);transform-origin:left;
 }
 [data-in='true'] .foot-line::before{animation:growx 1.2s var(--snap) .4s both}
+
+/* ---------- hover effects: mouse and trackpad only ---------- */
+@media (hover:hover){
+  .ulink:hover::after{transform:scaleX(1);transform-origin:left}
+  .btn:hover::before{transform:none}
+  .btn-fill:hover{color:var(--on-accent)}
+  .btn-line:hover{color:var(--color-cream)}
+  .btn-cta:hover{color:#14110f}
+  .btn:hover .arr{translate:6px 0}
+  .tt:hover svg{rotate:18deg}
+  .svc:hover{translate:0 -10px;background-color:var(--color-accent);color:var(--on-accent)}
+  .svc:hover::after{transform:scaleX(1)}
+  .wk:hover{translate:0 -8px}
+  .see-all:hover{color:var(--color-accent)}
+  .see-all:hover::after{transform:scaleX(1)}
+  .promise:hover{translate:12px 0}
+  .promise:hover::before{rotate:45deg;scale:1.35}
+  .promise:hover .ptitle{color:var(--color-accent)}
+  .member:hover .member-photo{translate:0 -8px;background-color:var(--color-accent);color:var(--on-accent)}
+  .member:hover .mname{color:var(--color-accent)}
+  .faq:hover::before{transform:scaleX(1)}
+  .faq:hover .faq-q{translate:10px 0}
+  .flink:hover{translate:8px 0;color:var(--color-accent)}
+  .marq-track:hover{animation-play-state:paused}
+}
 
 /* ---------- reduced motion: land on the final state, no looping ---------- */
 @media (prefers-reduced-motion: reduce){
@@ -508,6 +513,8 @@ function useInView(threshold = 0.18) {
           io.disconnect()
         }
       },
+      // Tall stacked sections on phones may never reach 18% visible at once,
+      // so the threshold is a fraction of the section but capped by rootMargin.
       { threshold, rootMargin: '0px 0px -6% 0px' },
     )
     io.observe(el)
@@ -517,9 +524,11 @@ function useInView(threshold = 0.18) {
 }
 
 /* A section that flips data-in="true" the first time it scrolls into view.
-   Every .rv-* descendant is keyed off that attribute. */
+   Every .rv-* descendant is keyed off that attribute.
+   On phones the sections are much taller than the screen, so a lower
+   threshold is used there to make sure they always reveal. */
 function Sec({ as: El = 'section', className = '', children, ...rest }) {
-  const [ref, inView] = useInView()
+  const [ref, inView] = useInView(0.08)
   return (
     <El
       ref={ref}
@@ -669,7 +678,7 @@ function ThemeToggle({ dark, onToggle }) {
       aria-label={dark ? 'Switch to light mode' : 'Switch to dark mode'}
       aria-pressed={dark}
       title={dark ? 'Light mode' : 'Dark mode'}
-      className="tt btn btn-fill rv rv-pop absolute right-[272px] top-[14px] flex h-[52px] w-[52px] cursor-pointer items-center justify-center border-2 border-ink"
+      className="tt btn btn-fill rv rv-pop flex h-11 w-11 shrink-0 cursor-pointer items-center justify-center border-2 border-ink sm:h-[52px] sm:w-[52px]"
       style={d(650)}
     >
       <svg
@@ -701,46 +710,120 @@ function ThemeToggle({ dark, onToggle }) {
   )
 }
 
+function MenuToggle({ open, onClick }) {
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      aria-label={open ? 'Close menu' : 'Open menu'}
+      aria-expanded={open}
+      aria-controls="mobile-menu"
+      className="btn btn-fill rv rv-pop flex h-11 w-11 shrink-0 cursor-pointer items-center justify-center border-2 border-ink sm:h-[52px] sm:w-[52px] lg:hidden"
+      style={d(720)}
+    >
+      <svg
+        viewBox="0 0 24 24"
+        width="22"
+        height="22"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="square"
+      >
+        {open ? (
+          <path d="M5 5l14 14M19 5L5 19" />
+        ) : (
+          <path d="M4 7h16M4 12h16M4 17h16" />
+        )}
+      </svg>
+    </button>
+  )
+}
+
 /* ------------------------------------------------------------------ */
 /*  Sections                                                           */
 /* ------------------------------------------------------------------ */
 
 function Nav({ dark, onToggle }) {
+  const [open, setOpen] = useState(false)
+
+  useEffect(() => {
+    if (!open) return undefined
+    const onKey = (event) => {
+      if (event.key === 'Escape') setOpen(false)
+    }
+    window.addEventListener('keydown', onKey)
+    return () => window.removeEventListener('keydown', onKey)
+  }, [open])
+
+  const close = () => setOpen(false)
+
   return (
-    <Sec as="header" className="nav-in h-20 border-b border-ink bg-cream">
-      <img
-        className="logo-light rv rv-up absolute left-16 top-[14px] w-[150px]"
-        style={d(300)}
-        src={navLogo}
-        alt="Codon logo"
-      />
-      {/* The footer logo is the light-on-dark artwork, so it doubles as the dark-mode nav logo. */}
-      <img
-        className="logo-dark rv rv-up absolute left-16 top-[14px] w-[150px]"
-        style={d(300)}
-        src={footerLogo}
-        alt="Codon logo"
-      />
-      <nav className="absolute left-[420px] top-0 flex h-20 items-center gap-9 text-base font-semibold">
-        {navLinks.map((link, i) => (
-          <a
-            key={link}
-            href={`#${link.toLowerCase()}`}
-            className="ulink rv rv-up relative py-1"
-            style={d(380 + i * 70)}
-          >
-            {link}
-          </a>
-        ))}
-      </nav>
-      <ThemeToggle dark={dark} onToggle={onToggle} />
-      <a
-        className={`${BTN_DARK} rv rv-pop absolute right-16 top-[14px]`}
-        style={d(720)}
-        href="#contact"
-      >
-        Start a project
-      </a>
+    <Sec as="header" className="nav-in border-b border-ink bg-cream">
+      <div className="flex h-20 items-center gap-3 px-6 sm:px-10 lg:px-16">
+        <img
+          className="logo-light rv rv-up w-[120px] shrink-0 sm:w-[150px]"
+          style={d(300)}
+          src={navLogo}
+          alt="Codon logo"
+        />
+        {/* The footer logo is the light-on-dark artwork, so it doubles as the dark-mode nav logo. */}
+        <img
+          className="logo-dark rv rv-up w-[120px] shrink-0 sm:w-[150px]"
+          style={d(300)}
+          src={footerLogo}
+          alt="Codon logo"
+        />
+        <nav className="hidden items-center gap-7 text-base font-semibold lg:ml-10 lg:flex xl:ml-[130px] xl:gap-9">
+          {navLinks.map((link, i) => (
+            <a
+              key={link}
+              href={`#${link.toLowerCase()}`}
+              className="ulink rv rv-up relative py-1"
+              style={d(380 + i * 70)}
+            >
+              {link}
+            </a>
+          ))}
+        </nav>
+        <div className="ml-auto flex items-center gap-3">
+          <ThemeToggle dark={dark} onToggle={onToggle} />
+          <div className="hidden sm:block">
+            <a
+              className={`${BTN_DARK} rv rv-pop`}
+              style={d(720)}
+              href="#contact"
+            >
+              Start a project
+            </a>
+          </div>
+          <MenuToggle open={open} onClick={() => setOpen((v) => !v)} />
+        </div>
+      </div>
+      {open && (
+        <div
+          id="mobile-menu"
+          className="menu-in border-t border-muted/40 px-6 pb-8 pt-2 sm:px-10 lg:hidden"
+        >
+          <nav className="flex flex-col">
+            {navLinks.map((link) => (
+              <a
+                key={link}
+                href={`#${link.toLowerCase()}`}
+                onClick={close}
+                className="border-b border-muted/40 py-4 text-[28px] font-extrabold leading-none tracking-[-0.02em]"
+              >
+                {link}
+              </a>
+            ))}
+          </nav>
+          <div className="mt-6 sm:hidden">
+            <a className={BTN_DARK} href="#contact" onClick={close}>
+              Start a project
+            </a>
+          </div>
+        </div>
+      )}
     </Sec>
   )
 }
@@ -748,48 +831,54 @@ function Nav({ dark, onToggle }) {
 function Hero() {
   const { rows, end } = termTimeline
   return (
-    <Sec className="h-[640px] bg-cream">
-      <Label className="absolute left-16 top-16" at={100}>
-        SOFTWARE STUDIO / THREE FRIENDS
-      </Label>
-      <h1 className={`${HEAD_T} absolute left-16 top-[104px] text-[100px]`}>
-        <Line at={250}>We build</Line>
-        <Line at={380}>software</Line>
-        <Line at={510}>
-          that works
-          <Dot at={1000} />
-        </Line>
-      </h1>
-      <p
-        className="rv rv-up absolute left-16 top-[420px] w-[540px] text-xl font-medium leading-[1.4]"
-        style={d(750)}
-      >
-        Websites, apps and business systems for companies that want to grow.
-        Built by three friends who code on.
-      </p>
-      <div className="absolute left-16 top-[536px] flex gap-[14px]">
-        <a
-          className={`${BTN_DARK} rv rv-up`}
-          style={d(900)}
-          href="#contact"
+    <Sec
+      className={`${PAD} grid items-start gap-12 bg-cream lg:grid-cols-[1fr_396px] lg:gap-16`}
+    >
+      <div>
+        <Label className="mb-5" at={100}>
+          SOFTWARE STUDIO / THREE FRIENDS
+        </Label>
+        <h1
+          className={`${HEAD_T} text-[length:clamp(44px,13.5vw,100px)] lg:text-[length:clamp(60px,7.2vw,100px)]`}
         >
-          Start a project <span className="arr font-medium">&rarr;</span>
-        </a>
-        <a
-          className={`${BTN_OUTLINE} rv rv-up`}
-          style={d(1000)}
-          href="#work"
+          <Line at={250}>We build</Line>
+          <Line at={380}>software</Line>
+          <Line at={510}>
+            that works
+            <Dot at={1000} />
+          </Line>
+        </h1>
+        <p
+          className="rv rv-up mt-8 max-w-[540px] text-lg font-medium leading-[1.4] sm:text-xl lg:mt-12"
+          style={d(750)}
         >
-          See our work
-        </a>
+          Websites, apps and business systems for companies that want to grow.
+          Built by three friends who code on.
+        </p>
+        <div className="mt-8 flex flex-wrap gap-[14px] lg:mt-10">
+          <a
+            className={`${BTN_DARK} rv rv-up`}
+            style={d(900)}
+            href="#contact"
+          >
+            Start a project <span className="arr font-medium">&rarr;</span>
+          </a>
+          <a
+            className={`${BTN_OUTLINE} rv rv-up`}
+            style={d(1000)}
+            href="#work"
+          >
+            See our work
+          </a>
+        </div>
       </div>
       <div
-        className={`${CUT_84} term panel rv rv-up absolute left-[740px] top-16 h-[512px] w-[396px]`}
+        className={`${CUT_84} term panel rv rv-up relative h-[360px] w-full max-w-[440px] lg:h-[512px] lg:max-w-none`}
         style={d(350)}
       >
         <div className="scan" />
         <div
-          className={`${MONO} absolute left-9 top-11 text-[15px] font-medium leading-[2]`}
+          className={`${MONO} absolute left-7 top-9 text-[15px] font-medium leading-[2] sm:left-9 sm:top-11`}
         >
           {rows.map((row) => (
             <div key={row.label} className="flex items-baseline">
@@ -829,7 +918,7 @@ function Hero() {
           ))}
         </div>
         <div
-          className={`${HEAD_T} absolute bottom-10 left-9 text-[44px]`}
+          className={`${HEAD_T} absolute bottom-8 left-7 text-[36px] sm:bottom-10 sm:left-9 sm:text-[44px]`}
         >
           <span className="rv rv-wipe inline-block" style={d(end)}>
             Code on
@@ -869,14 +958,16 @@ function Marquee() {
 
 function Numbers() {
   return (
-    <Sec className="panel h-[200px]">
+    <Sec
+      className={`panel grid grid-cols-2 gap-x-6 gap-y-10 px-6 py-12 sm:px-10 lg:grid-cols-4 lg:gap-x-8 lg:px-16`}
+    >
       {stats.map((stat, i) => (
         <div
-          className={`stat absolute top-12 w-[252px] pl-[22px] ${stat.pos}`}
+          className="stat relative pl-[22px]"
           key={stat.label}
           style={d(i * 140)}
         >
-          <div className={`${HEAD_T} text-[76px]`}>
+          <div className={`${HEAD_T} text-[length:clamp(52px,12vw,76px)]`}>
             <Odometer value={Number(stat.value)} at={250 + i * 140} />
             <Dot at={1000 + i * 140} />
           </div>
@@ -894,29 +985,29 @@ function Numbers() {
 
 function Services() {
   return (
-    <Sec className="h-[580px] bg-cream" id="services">
-      <Label className="absolute left-16 top-16">01 / SERVICES</Label>
-      <H2 className="absolute left-16 top-[100px] text-[68px]">
+    <Sec className={`${PAD} bg-cream`} id="services">
+      <Label className="mb-5">01 / SERVICES</Label>
+      <H2 className={`${H2_SIZE} mb-10 lg:mb-14`}>
         What we build
         <Dot at={900} />
       </H2>
-      {services.map((service, i) => (
-        <div
-          className={`${CUT_40} svc rv rv-pop absolute top-[224px] h-[290px] w-[250px] cursor-default bg-sand ${service.pos}`}
-          key={service.n}
-          style={d(350 + i * 110)}
-        >
-          <div className={`${MONO} absolute left-6 top-6 text-xs font-medium`}>
-            {service.n}
+      <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4 lg:gap-6">
+        {services.map((service, i) => (
+          <div
+            className={`${CUT_40} svc rv rv-pop relative flex min-h-[260px] cursor-default flex-col bg-sand p-6 lg:min-h-[290px]`}
+            key={service.n}
+            style={d(350 + i * 110)}
+          >
+            <div className={`${MONO} text-xs font-medium`}>{service.n}</div>
+            <div className="mt-16 text-[27px] font-extrabold leading-none tracking-[-0.025em]">
+              {service.t}
+            </div>
+            <div className="mt-10 text-[15px] font-medium leading-[1.4]">
+              {service.d}
+            </div>
           </div>
-          <div className="absolute left-6 right-6 top-[104px] text-[27px] font-extrabold leading-none tracking-[-0.025em]">
-            {service.t}
-          </div>
-          <div className="absolute left-6 right-6 top-[180px] text-[15px] font-medium leading-[1.4]">
-            {service.d}
-          </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </Sec>
   )
 }
@@ -924,10 +1015,10 @@ function Services() {
 function WorkCardWebsite() {
   return (
     <article
-      className={`${CUT_56} wk panel rv rv-left absolute left-16 top-[224px] h-[474px] w-[600px] overflow-hidden`}
+      className={`${CUT_56} wk panel rv rv-left relative h-[474px] overflow-hidden lg:col-span-2 xl:col-span-1 xl:row-span-2`}
       style={d(300)}
     >
-      <div className="absolute left-8 right-8 top-8 h-[254px] bg-cream text-ink">
+      <div className="absolute inset-x-5 top-5 h-[254px] bg-cream text-ink sm:inset-x-8 sm:top-8">
         <div className="panel absolute left-0 right-0 top-0 h-8 border-b border-muted" />
         <div className="tick absolute left-3 top-3 h-2 w-2 bg-accent" />
         <div
@@ -939,7 +1030,7 @@ function WorkCardWebsite() {
           style={d(1600)}
         />
         <div
-          className="rv rv-wipe absolute left-6 top-[62px] font-sans text-[46px] font-extrabold leading-none tracking-[-0.035em]"
+          className="rv rv-wipe absolute left-4 top-[62px] font-sans text-[34px] font-extrabold leading-none tracking-[-0.035em] sm:left-6 sm:text-[46px]"
           style={d(900)}
         >
           Your next
@@ -948,31 +1039,34 @@ function WorkCardWebsite() {
           <Dot at={1700} />
         </div>
         <div
-          className="shine rv rv-pop absolute left-6 top-[176px] h-[34px] w-[110px] bg-accent"
+          className="shine rv rv-pop absolute left-4 top-[176px] h-[34px] w-[84px] bg-accent sm:left-6 sm:w-[110px]"
           style={d(1300)}
         />
         <div
-          className="rv rv-pop absolute left-[150px] top-[176px] h-[34px] w-[110px] border-2 border-ink"
+          className="rv rv-pop absolute left-[116px] top-[176px] h-[34px] w-[84px] border-2 border-ink sm:left-[150px] sm:w-[110px]"
           style={d(1400)}
         />
         <div
-          className="rv rv-pop absolute right-6 top-14 h-[154px] w-[170px]"
+          className="rv rv-pop absolute right-6 top-14 hidden h-[154px] w-[170px] sm:block"
           style={d(1100)}
         >
           <div className={`${CUT_40} float h-full w-full bg-sand`} />
         </div>
       </div>
-      <Label className="absolute left-8 top-[316px] text-accent" at={700}>
+      <Label
+        className="absolute left-5 top-[292px] text-accent sm:left-8 sm:top-[316px]"
+        at={700}
+      >
         WEBSITE
       </Label>
       <div
-        className={`${HEAD} rv rv-wipe absolute left-8 top-[346px] text-[38px] leading-none`}
+        className={`${HEAD} rv rv-wipe absolute left-5 top-[322px] text-[28px] leading-none sm:left-8 sm:top-[346px] sm:text-[38px]`}
         style={d(800)}
       >
         [CLIENT NAME]
       </div>
       <div
-        className="rv rv-up absolute left-8 top-[402px] w-[460px] text-[17px] font-medium leading-[1.4]"
+        className="rv rv-up absolute left-5 right-5 top-[372px] max-w-[460px] text-base font-medium leading-[1.4] sm:left-8 sm:right-8 sm:top-[402px] sm:text-[17px]"
         style={d(950)}
       >
         One line on what we built and what changed.
@@ -984,25 +1078,25 @@ function WorkCardWebsite() {
 function WorkCardApp() {
   return (
     <article
-      className={`${CUT_56} wk on-accent rv rv-right absolute left-[688px] top-[224px] h-[225px] w-[448px] overflow-hidden bg-accent`}
+      className={`${CUT_56} wk on-accent rv rv-right relative h-[225px] overflow-hidden bg-accent`}
       style={d(450)}
     >
-      <Label className="absolute left-7 top-7" at={700}>
+      <Label className="absolute left-6 top-6 sm:left-7 sm:top-7" at={700}>
         MOBILE APP
       </Label>
       <div
-        className={`${HEAD} rv rv-wipe absolute left-7 top-[62px] text-[32px] leading-none`}
+        className={`${HEAD} rv rv-wipe absolute left-6 top-[58px] text-[28px] leading-none sm:left-7 sm:top-[62px] sm:text-[32px]`}
         style={d(800)}
       >
         [CLIENT NAME]
       </div>
       <div
-        className="rv rv-up absolute left-7 top-[108px] w-[240px] text-[15px] font-medium leading-[1.4]"
+        className="rv rv-up absolute left-6 right-6 top-[100px] text-[15px] font-medium leading-[1.4] sm:left-7 sm:right-auto sm:top-[108px] sm:w-[240px]"
         style={d(950)}
       >
         One line on what we built and what changed.
       </div>
-      <div className="phone panel absolute left-[312px] top-9 h-[240px] w-[104px]">
+      <div className="phone panel absolute right-8 top-9 hidden h-[240px] w-[104px] sm:block">
         <div className="absolute left-3 top-[30px] h-[58px] w-20 overflow-hidden bg-[#f6f1e9]">
           <span className="shimmer" />
         </div>
@@ -1019,25 +1113,25 @@ function WorkCardApp() {
 function WorkCardSystem() {
   return (
     <article
-      className={`${CUT_56} wk rv rv-right absolute left-[688px] top-[473px] h-[225px] w-[448px] overflow-hidden bg-cream text-ink`}
+      className={`${CUT_56} wk rv rv-right relative h-[225px] overflow-hidden bg-cream text-ink`}
       style={d(600)}
     >
-      <Label className="absolute left-7 top-7" at={900}>
+      <Label className="absolute left-6 top-6 sm:left-7 sm:top-7" at={900}>
         BUSINESS SYSTEM
       </Label>
       <div
-        className={`${HEAD} rv rv-wipe absolute left-7 top-[62px] text-[32px] leading-none`}
+        className={`${HEAD} rv rv-wipe absolute left-6 top-[58px] text-[28px] leading-none sm:left-7 sm:top-[62px] sm:text-[32px]`}
         style={d(1000)}
       >
         [CLIENT NAME]
       </div>
       <div
-        className="rv rv-up absolute left-7 top-[108px] w-[240px] text-[15px] font-medium leading-[1.4]"
+        className="rv rv-up absolute left-6 right-6 top-[100px] text-[15px] font-medium leading-[1.4] sm:left-7 sm:right-auto sm:top-[108px] sm:w-[240px]"
         style={d(1100)}
       >
         One line on what we built and what changed.
       </div>
-      <div className="absolute left-[296px] top-10 h-[185px] w-[120px]">
+      <div className="absolute right-8 top-10 hidden h-[185px] w-[120px] sm:block">
         {bars.map((bar, i) => (
           <div
             key={bar.pos}
@@ -1054,21 +1148,25 @@ function WorkCardSystem() {
 
 function Work() {
   return (
-    <Sec className="h-[760px] bg-sand" id="work">
-      <Label className="absolute left-16 top-16">02 / SELECTED WORK</Label>
-      <H2 className="absolute left-16 top-[100px] text-[68px]">
-        Things we shipped
-        <Dot at={1000} />
-      </H2>
-      <div
-        className={`${TAG} see-all rv rv-left absolute right-16 top-32 cursor-pointer`}
-        style={d(400)}
-      >
-        SEE ALL WORK <span className="inline-block">&rarr;</span>
+    <Sec className={`${PAD} bg-sand`} id="work">
+      <Label className="mb-5">02 / SELECTED WORK</Label>
+      <div className="mb-10 flex flex-wrap items-end justify-between gap-x-8 gap-y-4 lg:mb-14">
+        <H2 className={H2_SIZE}>
+          Things we shipped
+          <Dot at={1000} />
+        </H2>
+        <div
+          className={`${TAG} see-all rv rv-left relative mb-2 cursor-pointer`}
+          style={d(400)}
+        >
+          SEE ALL WORK <span className="inline-block">&rarr;</span>
+        </div>
       </div>
-      <WorkCardWebsite />
-      <WorkCardApp />
-      <WorkCardSystem />
+      <div className="grid gap-6 lg:grid-cols-2 xl:grid-cols-[600fr_448fr]">
+        <WorkCardWebsite />
+        <WorkCardApp />
+        <WorkCardSystem />
+      </div>
     </Sec>
   )
 }
@@ -1092,7 +1190,7 @@ function ProcessSteps() {
     const state = active > i ? 'done' : active === i ? 'run' : 'idle'
     return (
       <div
-        className={`rv rv-up absolute top-[276px] w-[336px] border-t-2 border-muted/40 pt-[18px] ${step.pos}`}
+        className="rv rv-up relative border-t-2 border-muted/40 pt-[18px]"
         key={step.n}
         style={d(600 + i * 160)}
       >
@@ -1116,7 +1214,9 @@ function ProcessSteps() {
         >
           {step.t}
         </div>
-        <div className="text-[17px] font-medium leading-[1.45]">{step.d}</div>
+        <div className="max-w-[460px] text-[17px] font-medium leading-[1.45]">
+          {step.d}
+        </div>
       </div>
     )
   })
@@ -1124,11 +1224,11 @@ function ProcessSteps() {
 
 function Process() {
   return (
-    <Sec className="panel h-[520px]" id="process">
-      <Label className="absolute left-16 top-16 text-muted">
-        03 / HOW WE WORK
-      </Label>
-      <h2 className={`${HEAD_T} absolute left-16 top-[100px] text-[96px]`}>
+    <Sec className={`${PAD} panel`} id="process">
+      <Label className="mb-5 text-muted">03 / HOW WE WORK</Label>
+      <h2
+        className={`${HEAD_T} text-[length:clamp(52px,14vw,96px)]`}
+      >
         {['Lead', 'Try', 'Ship'].map((word, i) => (
           <Fragment key={word}>
             <span
@@ -1142,134 +1242,176 @@ function Process() {
           </Fragment>
         ))}
       </h2>
-      <ProcessSteps />
+      <div className="mt-12 grid gap-10 lg:mt-20 lg:grid-cols-3 lg:gap-8">
+        <ProcessSteps />
+      </div>
     </Sec>
   )
 }
 
 function Promises() {
   return (
-    <Sec className="h-[600px] bg-cream">
-      <Label className="absolute left-16 top-16">04 / OUR PROMISES</Label>
-      <h2 className={`${HEAD_T} absolute left-16 top-[100px] text-[84px]`}>
-        <span className="rv rv-wipe block w-fit" style={d(150)}>
-          Plain words.
-        </span>
-        <span className="rv rv-wipe block w-fit" style={d(300)}>
-          Real people.
-        </span>
-        <span className="rv rv-wipe block w-fit" style={d(450)}>
-          Fixed dates
-          <Dot at={1000} />
-        </span>
-      </h2>
-      <p
-        className="rv rv-up absolute left-16 top-[392px] w-[460px] text-xl font-medium leading-[1.4]"
-        style={d(700)}
-      >
-        We keep the work simple, so you always know what is happening and what
-        comes next.
-      </p>
-      <a
-        className={`${BTN_DARK} rv rv-up absolute left-16 top-[490px]`}
-        style={d(850)}
-        href="#contact"
-      >
-        Start a project <span className="arr font-medium">&rarr;</span>
-      </a>
-      {promises.map((promise, i) => (
-        <div
-          className={`promise rv rv-right absolute left-[640px] h-[84px] w-[496px] cursor-default border-t border-ink pl-7 pt-4 before:absolute before:left-0 before:top-[22px] before:h-3 before:w-3 before:bg-accent before:content-[''] ${promise.pos}`}
-          key={promise.t}
-          style={d(300 + i * 120)}
-        >
-          <div className="ptitle text-[22px] font-extrabold leading-[1.1] tracking-[-0.02em]">
-            {promise.t}
-          </div>
-          <div className="mt-1 text-[15px] font-medium leading-[1.4]">
-            {promise.d}
-          </div>
+    <Sec className={`${PAD} bg-cream`}>
+      <Label className="mb-5">04 / OUR PROMISES</Label>
+      <div className="grid gap-12 lg:grid-cols-[1fr_440px] lg:gap-12 xl:grid-cols-[1fr_496px]">
+        <div>
+          <h2
+            className={`${HEAD_T} text-[length:clamp(40px,11.5vw,84px)] lg:text-[length:clamp(56px,6.2vw,84px)]`}
+          >
+            <span className="rv rv-wipe block w-fit" style={d(150)}>
+              Plain words.
+            </span>
+            <span className="rv rv-wipe block w-fit" style={d(300)}>
+              Real people.
+            </span>
+            <span className="rv rv-wipe block w-fit" style={d(450)}>
+              Fixed dates
+              <Dot at={1000} />
+            </span>
+          </h2>
+          <p
+            className="rv rv-up mt-8 max-w-[460px] text-lg font-medium leading-[1.4] sm:text-xl lg:mt-14"
+            style={d(700)}
+          >
+            We keep the work simple, so you always know what is happening and
+            what comes next.
+          </p>
+          <a
+            className={`${BTN_DARK} rv rv-up mt-8`}
+            style={d(850)}
+            href="#contact"
+          >
+            Start a project <span className="arr font-medium">&rarr;</span>
+          </a>
         </div>
-      ))}
+        <div>
+          {promises.map((promise, i) => (
+            <div
+              className="promise rv rv-right relative min-h-[84px] cursor-default border-t border-ink pb-5 pl-7 pt-4 before:absolute before:left-0 before:top-[22px] before:h-3 before:w-3 before:bg-accent before:content-['']"
+              key={promise.t}
+              style={d(300 + i * 120)}
+            >
+              <div className="ptitle text-[22px] font-extrabold leading-[1.1] tracking-[-0.02em]">
+                {promise.t}
+              </div>
+              <div className="mt-1 text-[15px] font-medium leading-[1.4]">
+                {promise.d}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
     </Sec>
   )
 }
 
 function Team() {
   return (
-    <Sec className="h-[640px] bg-sand" id="team">
-      <Label className="absolute left-16 top-16">05 / THE TEAM</Label>
-      <H2 className="absolute left-16 top-[100px] text-[68px]">
+    <Sec className={`${PAD} bg-sand`} id="team">
+      <Label className="mb-5">05 / THE TEAM</Label>
+      <H2 className={`${H2_SIZE} mb-10 lg:mb-14`}>
         Three friends. One studio
         <Dot at={1000} />
       </H2>
-      {team.map((member, i) => (
-        <div key={member.name} className="member">
-          <div
-            className={`${CUT_64} member-photo rv rv-pop absolute top-[224px] h-[300px] w-[340px] overflow-hidden bg-cream ${member.pos}`}
-            style={d(350 + i * 150)}
-          >
-            <div className="stripes" />
+      <div className="grid gap-10 md:grid-cols-3 md:gap-6 lg:gap-8">
+        {team.map((member, i) => (
+          <div key={member.name} className="member max-w-[400px] md:max-w-none">
             <div
-              className={`${MONO} absolute left-0 right-0 top-1/2 text-center text-xs font-medium tracking-[0.08em]`}
+              className={`${CUT_64} member-photo rv rv-pop relative aspect-[340/300] w-full overflow-hidden bg-cream`}
+              style={d(350 + i * 150)}
             >
-              PHOTO
+              <div className="stripes" />
+              <div
+                className={`${MONO} absolute left-0 right-0 top-1/2 text-center text-xs font-medium tracking-[0.08em]`}
+              >
+                PHOTO
+              </div>
+            </div>
+            <div
+              className="rv rv-up mt-4"
+              style={d(650 + i * 150)}
+            >
+              <div className="mname text-[26px] font-extrabold tracking-[-0.02em]">
+                {member.name}
+              </div>
+              <div className={`${TAG} mt-[6px]`}>{member.role}</div>
             </div>
           </div>
-          <div
-            className={`rv rv-up absolute top-[540px] ${member.pos}`}
-            style={d(650 + i * 150)}
-          >
-            <div className="mname text-[26px] font-extrabold tracking-[-0.02em]">
-              {member.name}
-            </div>
-            <div className={`${TAG} mt-[6px]`}>{member.role}</div>
-          </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </Sec>
   )
 }
 
 function Faq() {
   return (
-    <Sec className="h-[620px] bg-cream">
-      <Label className="absolute left-16 top-16">06 / QUESTIONS</Label>
-      <H2 className="absolute left-16 top-[100px] text-[68px]">
+    <Sec className={`${PAD} bg-cream`}>
+      <Label className="mb-5">06 / QUESTIONS</Label>
+      <H2 className={`${H2_SIZE} mb-10 lg:mb-14`}>
         Good questions
         <Dot at={900} />
       </H2>
-      {faqs.map((faq, i) => (
-        <div
-          className={`faq rv rv-up absolute w-[520px] cursor-default border-t-2 border-ink pt-[18px] ${faq.pos}`}
-          key={faq.n}
-          style={d(350 + i * 130)}
-        >
-          <div className={TAG}>{faq.n}</div>
-          <div className="faq-q my-[10px] text-[26px] font-extrabold leading-[1.05] tracking-[-0.025em]">
-            {faq.t}
+      <div className="grid gap-x-8 gap-y-10 md:grid-cols-2 lg:gap-y-12">
+        {faqs.map((faq, i) => (
+          <div
+            className="faq rv rv-up relative cursor-default border-t-2 border-ink pt-[18px]"
+            key={faq.n}
+            style={d(350 + i * 130)}
+          >
+            <div className={TAG}>{faq.n}</div>
+            <div className="faq-q my-[10px] text-[26px] font-extrabold leading-[1.05] tracking-[-0.025em]">
+              {faq.t}
+            </div>
+            <div className="max-w-[520px] text-[17px] font-medium leading-[1.45]">
+              {faq.d}
+            </div>
           </div>
-          <div className="text-[17px] font-medium leading-[1.45]">{faq.d}</div>
-        </div>
-      ))}
+        ))}
+      </div>
     </Sec>
   )
 }
 
 function Cta() {
   return (
-    <Sec className="on-accent h-[440px] bg-accent" id="contact">
-      <h2 className={`${HEAD_T} absolute left-16 top-[72px] text-[108px]`}>
-        <span className="rv rv-wipe block w-fit" style={d(100)}>
-          Got an idea?
-        </span>
-        <span className="rv rv-wipe block w-fit" style={d(300)}>
-          Let&apos;s build it
-          <Dot at={900} className="on-accent" />
-        </span>
-      </h2>
+    <Sec
+      className={`${PAD} on-accent grid items-start gap-10 bg-accent lg:grid-cols-[1fr_240px] lg:gap-8`}
+      id="contact"
+    >
+      <div>
+        <h2
+          className={`${HEAD_T} text-[length:clamp(34px,10vw,108px)] lg:text-[length:clamp(60px,7vw,100px)]`}
+        >
+          <span className="rv rv-wipe block w-fit" style={d(100)}>
+            Got an idea?
+          </span>
+          <span className="rv rv-wipe block w-fit" style={d(300)}>
+            Let&apos;s build it
+            <Dot at={900} className="on-accent" />
+          </span>
+        </h2>
+        <div className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-4 lg:mt-16">
+          <a
+            className={`${BTN_CTA} rv rv-up`}
+            style={d(700)}
+            href="mailto:hello@codon.studio"
+          >
+            Say hello <span className="arr font-medium">&rarr;</span>
+          </a>
+          <div
+            className={`${MONO} rv rv-up text-[15px] font-medium`}
+            style={d(850)}
+          >
+            hello@codon.studio
+            <span
+              className="cursor ml-1 inline-block h-[3px] w-3 bg-[#14110f]"
+              style={d(1300)}
+            />
+          </div>
+        </div>
+      </div>
       <div
-        className={`${CUT_56} panel rv rv-pop absolute left-[896px] top-[72px] h-[296px] w-[240px]`}
+        className={`${CUT_56} panel rv rv-pop relative h-[296px] w-full max-w-[280px] lg:w-[240px]`}
         style={d(400)}
       >
         <div className="scan" />
@@ -1281,58 +1423,40 @@ function Cta() {
           Code on<span className="text-accent">.</span>
         </div>
       </div>
-      <div className="absolute left-16 top-[338px] flex items-center gap-6">
-        <a
-          className={`${BTN_CTA} rv rv-up`}
-          style={d(700)}
-          href="mailto:hello@codon.studio"
-        >
-          Say hello <span className="arr font-medium">&rarr;</span>
-        </a>
-        <div
-          className={`${MONO} rv rv-up text-[15px] font-medium`}
-          style={d(850)}
-        >
-          hello@codon.studio
-          <span
-            className="cursor ml-1 inline-block h-[3px] w-3 bg-[#14110f]"
-            style={d(1300)}
-          />
-        </div>
-      </div>
     </Sec>
   )
 }
 
 function Footer() {
   return (
-    <Sec as="footer" className="panel h-[300px]">
-      <img
-        className="rv rv-up absolute left-16 top-16 w-[200px]"
-        style={d(100)}
-        src={footerLogo}
-        alt="Codon logo"
-      />
-      {footerColumns.map((column, ci) => (
-        <div
-          className={`absolute top-16 ${column.pos}`}
-          key={column.title}
-        >
-          <Label className="mb-4 text-muted" at={200 + ci * 120}>
-            {column.title}
-          </Label>
-          {column.items.map((item, ii) => (
-            <div
-              className="flink rv rv-up mb-[10px] w-fit cursor-pointer text-base font-medium"
-              key={item}
-              style={d(350 + ci * 120 + ii * 70)}
-            >
-              {item}
+    <Sec as="footer" className={`${PAD} panel`}>
+      <div className="flex flex-col gap-12 lg:flex-row lg:justify-between">
+        <img
+          className="rv rv-up w-[160px] self-start sm:w-[200px]"
+          style={d(100)}
+          src={footerLogo}
+          alt="Codon logo"
+        />
+        <div className="grid grid-cols-2 gap-x-8 gap-y-10 sm:grid-cols-3 lg:gap-x-16">
+          {footerColumns.map((column, ci) => (
+            <div key={column.title}>
+              <Label className="mb-4 text-muted" at={200 + ci * 120}>
+                {column.title}
+              </Label>
+              {column.items.map((item, ii) => (
+                <div
+                  className="flink rv rv-up mb-[10px] w-fit cursor-pointer py-0.5 text-base font-medium"
+                  key={item}
+                  style={d(350 + ci * 120 + ii * 70)}
+                >
+                  {item}
+                </div>
+              ))}
             </div>
           ))}
         </div>
-      ))}
-      <div className="foot-line absolute bottom-8 left-16 right-16 flex justify-between pt-4">
+      </div>
+      <div className="foot-line relative mt-14 flex flex-col gap-2 pt-4 sm:flex-row sm:justify-between lg:mt-16">
         <div
           className={`${MONO} rv rv-up text-xs font-medium tracking-[0.06em] text-muted`}
           style={d(800)}
@@ -1413,10 +1537,10 @@ export default function App() {
   }
 
   return (
-    <div className="min-h-screen w-full bg-cream font-sans text-ink">
+    <div className="min-h-screen w-full overflow-x-clip bg-cream font-sans text-ink">
       <style>{CSS}</style>
       <ScrollBar />
-      <div className="mx-auto w-[1200px]">
+      <div className="mx-auto w-full max-w-[1200px]">
         <Nav dark={dark} onToggle={toggleTheme} />
         <Hero />
         <Marquee />
