@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<title>Codon website desktop</title>
+<script src="./vendor/react.js"></script>
+<script src="./vendor/react-dom.js"></script>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>@font-face {
+  font-family: 'Blauer Nue';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("./assets/1fb33431cd57c5ef3f96506f2b3470cd.otf") format('opentype');
+}
+@font-face {
+  font-family: 'Blauer Nue';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("./assets/aa1d1735a00f24af69515cf1b6f6318c.otf") format('opentype');
+}
+@font-face {
+  font-family: 'Blauer Nue';
+  font-style: normal;
+  font-weight: 600 700;
+  font-display: swap;
+  src: url("./assets/f740eafb85bc621985ce40ccb8433474.otf") format('opentype');
+}
+@font-face {
+  font-family: 'Blauer Nue';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url("./assets/8155062d989b96e1499da6ea287b51f2.otf") format('opentype');
+}
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url("./assets/8889903cb8cf2fa00d1e25d5af3137d7.woff2") format('woff2');
+}
+</style>
+<style>
+body{margin:0}
+.f{font-family:'Blauer Nue',system-ui,-apple-system,'Segoe UI',sans-serif}
+.m{font-family:'JetBrains Mono',ui-monospace,Menlo,monospace}
+.sec{position:relative;overflow:hidden;width:1200px;box-sizing:border-box}
+.tag{font-family:'JetBrains Mono',ui-monospace,Menlo,monospace;font-size:12px;letter-spacing:.08em;font-weight:500}
+.h{font-family:'Blauer Nue',system-ui,sans-serif;font-weight:800;letter-spacing:-.035em;line-height:.93}
+.btn{display:inline-flex;align-items:center;gap:12px;height:52px;padding:0 24px;box-sizing:border-box;font-family:'Blauer Nue',system-ui,sans-serif;font-size:17px;font-weight:700}
+.card{position:absolute;top:224px;width:250px;height:290px;background:#E8DECF;clip-path:polygon(0 0,calc(100% - 40px) 0,100% 40px,100% 100%,0 100%)}
+.card .n{position:absolute;left:24px;top:24px}
+.card .t{position:absolute;left:24px;right:24px;top:104px;font-size:27px;font-weight:800;letter-spacing:-.025em;line-height:1}
+.card .d{position:absolute;left:24px;right:24px;top:180px;font-size:15px;line-height:1.4;font-weight:500}
+.col{position:absolute;top:276px;width:336px;border-top:2px solid #E8590C;padding-top:18px}
+.col .t{font-size:34px;font-weight:800;letter-spacing:-.03em;line-height:1;margin:14px 0 12px}
+.col .d{font-size:17px;line-height:1.45;font-weight:500}
+.ph{position:absolute;top:224px;width:340px;height:300px;background:#F6F1E9;clip-path:polygon(0 0,calc(100% - 64px) 0,100% 64px,100% 100%,0 100%)}
+.fh{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:12px;letter-spacing:.08em;font-weight:500;color:#8A8077;margin-bottom:16px}
+.fi{font-size:16px;font-weight:500;margin-bottom:10px}
+.a{position:absolute}
+.st{position:absolute;top:48px;width:252px;padding-left:20px;border-left:2px solid #E8590C;box-sizing:border-box}
+.st .h{font-size:76px}
+.st .tag{color:#8A8077;margin-top:14px}
+.wk{position:absolute;overflow:hidden;clip-path:polygon(0 0,calc(100% - 56px) 0,100% 56px,100% 100%,0 100%)}
+.wk>*{position:absolute}
+.wk .h{font-size:38px;line-height:1}
+.pr{position:absolute;left:640px;width:496px;height:84px;padding:16px 0 0 28px;box-sizing:border-box;border-top:1px solid #14110F}
+.pr:before{content:'';position:absolute;left:0;top:22px;width:12px;height:12px;background:#E8590C}
+.pr .t{font-size:22px;font-weight:800;letter-spacing:-.02em;line-height:1.1}
+.pr .d{font-size:15px;line-height:1.4;font-weight:500;margin-top:4px}
+.fq{position:absolute;width:520px;border-top:2px solid #14110F;padding-top:18px}
+.fq .t{font-size:26px;font-weight:800;letter-spacing:-.025em;line-height:1.05;margin:10px 0}
+.fq .d{font-size:17px;line-height:1.45;font-weight:500}
+</style>
+</helmet>
+<div class="f" style="width:1200px;color:#14110F;">
+
+  <!-- Nav -->
+  <div class="sec" style="height:80px;background:#F6F1E9;border-bottom:1px solid #14110F;">
+    <img src="./assets/828471661da69c7ed8bd4b6f5ad80b76.png" alt="Codon logo" style="position:absolute;left:64px;top:14px;width:150px;">
+    <div style="position:absolute;left:420px;top:0;height:80px;display:flex;align-items:center;gap:36px;font-size:16px;font-weight:600;">
+      <div>Work</div><div>Services</div><div>Process</div><div>Team</div><div>Contact</div>
+    </div>
+    <div class="btn" style="position:absolute;right:64px;top:14px;height:52px;background:#14110F;color:#F6F1E9;">Start a project</div>
+  </div>
+
+  <!-- Hero -->
+  
+
+  <!-- Strip -->
+  <div class="sec" style="height:640px;background:#F6F1E9;">
+    <div class="tag" style="position:absolute;left:64px;top:64px;">SOFTWARE STUDIO / THREE FRIENDS</div>
+    <div class="h" style="position:absolute;left:64px;top:104px;font-size:100px;">We build<br>software<br>that works<span style="color:#E8590C;">.</span></div>
+    <div style="position:absolute;left:64px;top:420px;width:540px;font-size:20px;line-height:1.4;font-weight:500;">Websites, apps and business systems for companies that want to grow. Built by three friends who code on.</div>
+    <div style="position:absolute;left:64px;top:536px;display:flex;gap:14px;">
+      <div class="btn" style="background:#14110F;color:#F6F1E9;">Start a project <span class="m" style="font-weight:500;">→</span></div>
+      <div class="btn" style="border:2px solid #14110F;">See our work</div>
+    </div>
+    <div style="position:absolute;left:740px;top:64px;width:396px;height:512px;background:#14110F;color:#F6F1E9;clip-path:polygon(0 0,calc(100% - 84px) 0,100% 84px,100% 100%,0 100%);">
+      <div class="m" style="position:absolute;left:36px;top:44px;font-size:15px;line-height:2;font-weight:500;">
+        <div style="color:#8A8077;">$ codon new project</div>
+        <div>idea ......... <span style="color:#E8590C;">ok</span></div>
+        <div>design ....... <span style="color:#E8590C;">ok</span></div>
+        <div>build ........ trying</div>
+        <div>test ......... trying</div>
+        <div>deploy ....... ready<span style="display:inline-block;width:12px;height:3px;background:#E8590C;margin-left:4px;"></span></div>
+      </div>
+      <div class="h" style="position:absolute;left:36px;bottom:40px;font-size:44px;">Code on<span style="color:#E8590C;">.</span></div>
+    </div>
+  </div><div class="sec" style="height:64px;background:#E8590C;color:#14110F;">
+    <div class="m" style="position:absolute;left:64px;right:0;top:0;height:64px;display:flex;align-items:center;gap:28px;white-space:nowrap;font-size:14px;font-weight:700;letter-spacing:.08em;">
+      <span>WEBSITES</span><span>/</span><span>MOBILE APPS</span><span>/</span><span>BUSINESS SYSTEMS</span><span>/</span><span>HOSTING AND CARE</span><span>/</span><span>WEBSITES</span>
+    </div>
+  </div>
+
+  <!-- Numbers -->
+  <div class="sec" style="height:200px;background:#14110F;color:#F6F1E9;">
+    <div class="st" style="left:64px;"><div class="h">3<span style="color:#E8590C;">.</span></div><div class="tag">FRIENDS, ONE STUDIO</div></div>
+    <div class="st" style="left:340px;"><div class="h">7<span style="color:#E8590C;">.</span></div><div class="tag">DAYS BETWEEN DEMOS</div></div>
+    <div class="st" style="left:616px;"><div class="h">4<span style="color:#E8590C;">.</span></div><div class="tag">WAYS WE HELP</div></div>
+    <div class="st" style="left:892px;"><div class="h">1<span style="color:#E8590C;">.</span></div><div class="tag">PRICE AND DATE, IN WRITING</div></div>
+  </div>
+
+  <!-- Services -->
+  <div class="sec" style="height:580px;background:#F6F1E9;">
+    <div class="tag" style="position:absolute;left:64px;top:64px;">01 / SERVICES</div>
+    <div class="h" style="position:absolute;left:64px;top:100px;font-size:68px;">What we build<span style="color:#E8590C;">.</span></div>
+    <div class="card" style="left:64px;"><div class="n m" style="font-size:12px;font-weight:500;">01</div><div class="t">Websites</div><div class="d">Fast, clear sites that bring in customers and look like you.</div></div>
+    <div class="card" style="left:338px;"><div class="n m" style="font-size:12px;font-weight:500;">02</div><div class="t">Mobile apps</div><div class="d">Apps for phones that people open every day.</div></div>
+    <div class="card" style="left:612px;"><div class="n m" style="font-size:12px;font-weight:500;">03</div><div class="t">Business systems</div><div class="d">Orders, stock and invoices in one place, built around how you work.</div></div>
+    <div class="card" style="left:886px;"><div class="n m" style="font-size:12px;font-weight:500;">04</div><div class="t">Hosting and care</div><div class="d">We keep it online, safe and updated. We pick up when it breaks.</div></div>
+  </div>
+
+  <!-- Work -->
+  <div class="sec" style="height:760px;background:#E8DECF;">
+    <div class="tag" style="position:absolute;left:64px;top:64px;">02 / SELECTED WORK</div>
+    <div class="h" style="position:absolute;left:64px;top:100px;font-size:68px;">Things we shipped<span style="color:#E8590C;">.</span></div>
+    <div class="tag" style="position:absolute;right:64px;top:128px;">SEE ALL WORK →</div>
+    <div class="wk" style="left:64px;top:224px;width:600px;height:474px;background:#14110F;color:#F6F1E9;">
+      <div style="left:32px;top:32px;right:32px;height:254px;background:#F6F1E9;color:#14110F;">
+        <div class="a" style="left:0;right:0;top:0;height:32px;background:#14110F;border-bottom:1px solid #8A8077;"></div>
+        <div class="a" style="left:12px;top:12px;width:8px;height:8px;background:#E8590C;"></div>
+        <div class="a" style="left:28px;top:12px;width:8px;height:8px;background:#8A8077;"></div>
+        <div class="a" style="left:44px;top:12px;width:8px;height:8px;background:#8A8077;"></div>
+        <div class="a h" style="left:24px;top:62px;font-size:46px;">Your next<br>headline<span style="color:#E8590C;">.</span></div>
+        <div class="a" style="left:24px;top:176px;width:110px;height:34px;background:#E8590C;"></div>
+        <div class="a" style="left:150px;top:176px;width:110px;height:34px;border:2px solid #14110F;box-sizing:border-box;"></div>
+        <div class="a" style="right:24px;top:56px;width:170px;height:154px;background:#E8DECF;clip-path:polygon(0 0,calc(100% - 36px) 0,100% 36px,100% 100%,0 100%);"></div>
+      </div>
+      <div class="tag" style="left:32px;top:316px;color:#E8590C;">WEBSITE</div>
+      <div class="h" style="left:32px;top:346px;">[CLIENT NAME]</div>
+      <div style="left:32px;top:402px;width:460px;font-size:17px;line-height:1.4;font-weight:500;">One line on what we built and what changed.</div>
+    </div>
+    <div class="wk" style="left:688px;top:224px;width:448px;height:225px;background:#E8590C;color:#14110F;">
+      <div class="tag" style="left:28px;top:28px;">MOBILE APP</div>
+      <div class="h" style="left:28px;top:62px;font-size:32px;">[CLIENT NAME]</div>
+      <div style="left:28px;top:108px;width:240px;font-size:15px;line-height:1.4;font-weight:500;">One line on what we built and what changed.</div>
+      <div style="left:312px;top:36px;width:104px;height:240px;background:#14110F;">
+        <div class="a" style="left:12px;top:30px;width:80px;height:58px;background:#F6F1E9;"></div>
+        <div class="a" style="left:12px;top:100px;width:80px;height:10px;background:#E8590C;"></div>
+        <div class="a" style="left:12px;top:120px;width:56px;height:10px;background:#8A8077;"></div>
+      </div>
+    </div>
+    <div class="wk" style="left:688px;top:473px;width:448px;height:225px;background:#F6F1E9;color:#14110F;">
+      <div class="tag" style="left:28px;top:28px;">BUSINESS SYSTEM</div>
+      <div class="h" style="left:28px;top:62px;font-size:32px;">[CLIENT NAME]</div>
+      <div style="left:28px;top:108px;width:240px;font-size:15px;line-height:1.4;font-weight:500;">One line on what we built and what changed.</div>
+      <div style="left:296px;top:40px;width:120px;height:185px;">
+        <div class="a" style="left:0;bottom:0;width:20px;height:50px;background:#14110F;"></div>
+        <div class="a" style="left:24px;bottom:0;width:20px;height:84px;background:#14110F;"></div>
+        <div class="a" style="left:48px;bottom:0;width:20px;height:66px;background:#14110F;"></div>
+        <div class="a" style="left:72px;bottom:0;width:20px;height:118px;background:#14110F;"></div>
+        <div class="a" style="left:96px;bottom:0;width:20px;height:160px;background:#E8590C;"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Process -->
+  <div class="sec" style="height:520px;background:#14110F;color:#F6F1E9;">
+    <div class="tag" style="position:absolute;left:64px;top:64px;color:#8A8077;">03 / HOW WE WORK</div>
+    <div class="h" style="position:absolute;left:64px;top:100px;font-size:96px;">Lead<span style="color:#E8590C;">.</span> Try<span style="color:#E8590C;">.</span> Ship<span style="color:#E8590C;">.</span></div>
+    <div class="col" style="left:64px;"><div class="m" style="font-size:13px;font-weight:700;color:#E8590C;">01</div><div class="t">Lead</div><div class="d">We listen, agree the goal, the price and the date, and put it in writing.</div></div>
+    <div class="col" style="left:432px;"><div class="m" style="font-size:13px;font-weight:700;color:#E8590C;">02</div><div class="t">Try</div><div class="d">We build in small steps and show you the result every week. We keep trying until it works.</div></div>
+    <div class="col" style="left:800px;"><div class="m" style="font-size:13px;font-weight:700;color:#E8590C;">03</div><div class="t">Ship</div><div class="d">We put it online with a plan, and we stay close for the first days.</div></div>
+  </div>
+
+  <!-- Promises -->
+  <div class="sec" style="height:600px;background:#F6F1E9;">
+    <div class="tag" style="position:absolute;left:64px;top:64px;">04 / OUR PROMISES</div>
+    <div class="h" style="position:absolute;left:64px;top:100px;font-size:84px;">Plain words.<br>Real people.<br>Fixed dates<span style="color:#E8590C;">.</span></div>
+    <div style="position:absolute;left:64px;top:392px;width:460px;font-size:20px;line-height:1.4;font-weight:500;">We keep the work simple, so you always know what is happening and what comes next.</div>
+    <div class="btn" style="position:absolute;left:64px;top:490px;background:#14110F;color:#F6F1E9;">Start a project <span class="m" style="font-weight:500;">→</span></div>
+    <div class="pr" style="top:100px;"><div class="t">Plain words</div><div class="d">No jargon. If we use a hard word, we explain it.</div></div>
+    <div class="pr" style="top:184px;"><div class="t">Price and date in writing</div><div class="d">You know the cost and the day before we start.</div></div>
+    <div class="pr" style="top:268px;"><div class="t">A result every week</div><div class="d">You see the work grow, not just the end.</div></div>
+    <div class="pr" style="top:352px;"><div class="t">Three people, one team</div><div class="d">You talk to the people who build it.</div></div>
+    <div class="pr" style="top:436px;"><div class="t">We pick up when it breaks</div><div class="d">We stay close after launch and keep it running.</div></div>
+  </div>
+
+  <!-- Team -->
+  <div class="sec" style="height:640px;background:#E8DECF;">
+    <div class="tag" style="position:absolute;left:64px;top:64px;">05 / THE TEAM</div>
+    <div class="h" style="position:absolute;left:64px;top:100px;font-size:68px;">Three friends. One studio<span style="color:#E8590C;">.</span></div>
+    <div class="ph" style="left:64px;"><div class="m" style="position:absolute;left:0;right:0;top:50%;text-align:center;font-size:12px;letter-spacing:.08em;font-weight:500;">PHOTO</div></div>
+    <div class="ph" style="left:430px;"><div class="m" style="position:absolute;left:0;right:0;top:50%;text-align:center;font-size:12px;letter-spacing:.08em;font-weight:500;">PHOTO</div></div>
+    <div class="ph" style="left:796px;"><div class="m" style="position:absolute;left:0;right:0;top:50%;text-align:center;font-size:12px;letter-spacing:.08em;font-weight:500;">PHOTO</div></div>
+    <div style="position:absolute;left:64px;top:540px;"><div style="font-size:26px;font-weight:800;letter-spacing:-.02em;">Founder name</div><div class="tag" style="margin-top:6px;">THE LEADER</div></div>
+    <div style="position:absolute;left:430px;top:540px;"><div style="font-size:26px;font-weight:800;letter-spacing:-.02em;">Rahim</div><div class="tag" style="margin-top:6px;">THE SAVER</div></div>
+    <div style="position:absolute;left:796px;top:540px;"><div style="font-size:26px;font-weight:800;letter-spacing:-.02em;">Mustafa</div><div class="tag" style="margin-top:6px;">THE TRYER</div></div>
+  </div>
+
+  <!-- FAQ -->
+  <div class="sec" style="height:620px;background:#F6F1E9;">
+    <div class="tag" style="position:absolute;left:64px;top:64px;">06 / QUESTIONS</div>
+    <div class="h" style="position:absolute;left:64px;top:100px;font-size:68px;">Good questions<span style="color:#E8590C;">.</span></div>
+    <div class="fq" style="left:64px;top:236px;"><div class="tag">Q1</div><div class="t">How do we start?</div><div class="d">Say hello. We listen, agree the goal, the price and the date, and put it in writing.</div></div>
+    <div class="fq" style="left:616px;top:236px;"><div class="tag">Q2</div><div class="t">Will I see the work before the end?</div><div class="d">Yes. We show you a result every week and keep trying until it works.</div></div>
+    <div class="fq" style="left:64px;top:416px;"><div class="tag">Q3</div><div class="t">What do you build?</div><div class="d">Websites, mobile apps and business systems for companies that want to grow.</div></div>
+    <div class="fq" style="left:616px;top:416px;"><div class="tag">Q4</div><div class="t">What happens after launch?</div><div class="d">We stay close for the first days, then keep it online, safe and updated.</div></div>
+  </div>
+
+  <!-- CTA -->
+  <div class="sec" style="height:440px;background:#E8590C;">
+    <div class="h" style="position:absolute;left:64px;top:72px;font-size:108px;">Got an idea?<br>Let's build it<span style="color:#14110F;">.</span></div>
+    <div style="position:absolute;left:896px;top:72px;width:240px;height:296px;background:#14110F;color:#F6F1E9;clip-path:polygon(0 0,calc(100% - 56px) 0,100% 56px,100% 100%,0 100%);">
+      <div class="tag" style="position:absolute;left:28px;top:32px;color:#8A8077;">START / STOP</div>
+      <div class="m" style="position:absolute;left:28px;top:84px;font-size:28px;font-weight:700;line-height:1.5;"><span style="color:#E8590C;">AUG</span> GCU<br>UUC <span style="color:#E8590C;">UAA</span></div>
+      <div class="h" style="position:absolute;left:28px;bottom:28px;font-size:40px;">Code on<span style="color:#E8590C;">.</span></div>
+    </div>
+    <div style="position:absolute;left:64px;top:338px;display:flex;align-items:center;gap:24px;">
+      <div class="btn" style="background:#14110F;color:#F6F1E9;">Say hello <span class="m" style="font-weight:500;">→</span></div>
+      <div class="m" style="font-size:15px;font-weight:500;">hello@codon.studio</div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="sec" style="height:300px;background:#14110F;color:#F6F1E9;">
+    <img src="./assets/137ccb54a18da6035523307f9b2a8737.png" alt="Codon logo" style="position:absolute;left:64px;top:64px;width:200px;">
+    <div style="position:absolute;left:520px;top:64px;"><div class="fh">STUDIO</div><div class="fi">Work</div><div class="fi">Services</div><div class="fi">Process</div><div class="fi">Team</div></div>
+    <div style="position:absolute;left:720px;top:64px;"><div class="fh">CONTACT</div><div class="fi">hello@codon.studio</div><div class="fi">+000 000 000 000</div><div class="fi">City, Country</div></div>
+    <div style="position:absolute;left:960px;top:64px;"><div class="fh">FOLLOW</div><div class="fi">LinkedIn</div><div class="fi">Instagram</div><div class="fi">TikTok</div></div>
+    <div style="position:absolute;left:64px;right:64px;bottom:32px;border-top:1px solid #8A8077;padding-top:16px;display:flex;justify-content:space-between;">
+      <div class="m" style="font-size:12px;letter-spacing:.06em;font-weight:500;color:#8A8077;">© 2026 CODON. CODE ON.</div>
+      <div class="m" style="font-size:12px;letter-spacing:.06em;font-weight:500;color:#8A8077;">THREE LETTERS. ONE INSTRUCTION.</div>
+    </div>
+  </div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script="" data-props="{&quot;$preview&quot;:{&quot;width&quot;:1200,&quot;height&quot;:5444}}">
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+
+
+</body></html>

@@ -1,0 +1,48 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: 'Blauer Nue';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('./assets/1fb33431cd57c5ef3f96506f2b3470cd.otf') format('opentype');
+}
+@font-face {
+  font-family: 'Blauer Nue';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('./assets/aa1d1735a00f24af69515cf1b6f6318c.otf') format('opentype');
+}
+@font-face {
+  font-family: 'Blauer Nue';
+  font-style: normal;
+  font-weight: 600 700;
+  font-display: swap;
+  src: url('./assets/f740eafb85bc621985ce40ccb8433474.otf') format('opentype');
+}
+@font-face {
+  font-family: 'Blauer Nue';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url('./assets/8155062d989b96e1499da6ea287b51f2.otf') format('opentype');
+}
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url('./assets/8889903cb8cf2fa00d1e25d5af3137d7.woff2') format('woff2');
+}
+
+@theme {
+  --font-sans: 'Blauer Nue', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, Menlo, monospace;
+
+  --color-cream: #f6f1e9;
+  --color-ink: #14110f;
+  --color-accent: #e8590c;
+  --color-sand: #e8decf;
+  --color-muted: #8a8077;
+}
